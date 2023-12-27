@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "head";
+    src: url(font/Righteous-Regular.ttf);
+}
+@font-face {
+    font-family: "question";
+    src: url(font/Gabarito-VariableFont_wght.ttf);
+}
+body{
+    background-color: rgb(44, 40, 40);
+}
+.credit h5,a{
+color: white;
+text-decoration: none;
+font-size: 15px;
+}
+
+.c1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.card1 h1{
+    
+    padding-top: 20px;
+    padding-left: 20px;
+    color: rgb(49, 56, 50);
+    font-size: 30px;
+    font-family: "head";
+}
+.card-body h3{
+    font-family: "question";
+    
+}
+
+ .btn{
+
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+    padding: 10px;
+    color:darkred
+
+}
+
+.next{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nxtbtn{
+    display: block;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+    display: none;
+    color: white;
+}
+
+.btn.correct {
+    background-color: green; /* Apply green color for correct answer */
+    color: rgb(255, 255, 255);
+}
+
+.btn.incorrect {
+    background-color: red; /* Apply red color for incorrect answer */
+    color: rgb(255, 255, 255);
+}
