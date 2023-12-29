@@ -1,4 +1,4 @@
-const question=[
+const questions=[
     {
         question:"What is the result of 2 + 2 in JavaScript?",
       
@@ -53,7 +53,7 @@ let score = 0;
 function startQuiz(){
     currentQuestionIndex =0;
     score =0 ;   // when we start quiz the score and question is 0
- nxtbtn.innerHTML="Next";
+//  nxtbtn.innerHTML="Next";   
  showQuestion();
 }
 
@@ -61,25 +61,26 @@ function startQuiz(){
 function showQuestion(){
     resetState();
 
-let currentQuestion = question[currentQuestionIndex];
+let currentQuestion = questions[currentQuestionIndex];
 let questionNo =currentQuestionIndex + 1;
 questionElement.innerHTML =questionNo + ". "+ currentQuestion.question;
 
-currentQuestion.answers.forEach(answer =>{
+    currentQuestion.answers.forEach(answer =>{
 
-    const button =document.createElement("button");
-    button.innerHTML = answer.text;  
-    button.classList.add('btn','btn-outline-dark');
-    answerButtons.appendChild(button);
+        const button =document.createElement("button");
+        button.innerHTML = answer.text;  
+        button.classList.add('btn','btn-outline-dark');
+        answerButtons.appendChild(button);
 
-    if(answer.correct){
-        button.dataset.correct=answer.correct;
-    }
+        
+        if(answer.correct){
+            button.dataset.correct=answer.correct; //<button id="myButton" data-correct="true">Click me</button>
+        }
     button.addEventListener("click",selectAnswer);
 });
 
 }
-
+    
 function  resetState(){
  nxtbtn.style.display ="none"
  while(answerButtons.firstChild){
@@ -93,7 +94,7 @@ function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct==="true";
     if(isCorrect){
-        selectedBtn.classList.add("correct");
+        selectedBtn.classList.add("correct");   
         score++;
     }
     else{
@@ -103,20 +104,22 @@ function selectAnswer(e){
         if(button.dataset.correct === "true"){
             button.classList.add("correct");
         }
+      
         button.disabled=true;  
     });
+    
     nxtbtn.style.display="block";
 }
 function showScore(){
 resetState();
-questionElement.innerHTML =`You Scored ${score} out of${question.length}!`;
+questionElement.innerHTML =`You Scored ${score} out of${questions.length}!`;
 nxtbtn.innerHTML="play again";
 nxtbtn.style.display="block";
 }
 
 function handlenxtbtn(){
     currentQuestionIndex++;
-    if(currentQuestionIndex<question.length){
+    if(currentQuestionIndex<questions.length){
         showQuestion();
     }
     else{
@@ -125,7 +128,7 @@ function handlenxtbtn(){
 
 }
 nxtbtn.addEventListener("click",()=>{
-    if(currentQuestionIndex<question.length){
+    if(currentQuestionIndex<questions.length){
         handlenxtbtn();
     }else{
         startQuiz();

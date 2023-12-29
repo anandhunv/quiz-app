@@ -58,6 +58,9 @@ font-size: 15px;
     display: none;
     color: white;
 }
+.butt{
+    display: block;
+}
 
 .btn.correct {
     background-color: green; /* Apply green color for correct answer */
